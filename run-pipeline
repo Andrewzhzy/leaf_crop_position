@@ -9,7 +9,7 @@ from terra_common import CoordinateConverter as CC
 from find_crop_position import find_crop_position
 from multiprocessing import Pool
 from datetime import datetime
-
+os.environ['BETYDB_KEY'] = '9999999999999999999999999999999999999999'
 
 def parse_args():
     # TODO add arg for globus refresh token
