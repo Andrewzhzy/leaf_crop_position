@@ -72,11 +72,14 @@ def find_crop_position(raw_data_folder, ply_data_folder, cc_path='./coord_conver
         logger.error('Load json file unsuccessful.')
         return -4
     # offset
+    logger.info('offsetting point cloud')
     east_ply_data = utils.ply_offset(east_ply_data, east_json_info)
     west_ply_data = utils.ply_offset(west_ply_data, west_json_info)
     # ply to xyz
+    logger.info('ply to xyz')
     east_ply_xyz_map = utils.ply2xyz(east_ply_data, east_pIm, east_gIm)
     west_ply_xyz_map = utils.ply2xyz(west_ply_data, west_pIm, west_gIm)
+    logger.info('find cropping position')
     # crop position
     east_crop_position_dict = utils.depth_crop_position(east_ply_xyz_map, cc)
     west_crop_position_dict = utils.depth_crop_position(west_ply_xyz_map, cc)
