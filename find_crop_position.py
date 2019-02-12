@@ -84,6 +84,7 @@ def find_crop_position(raw_data_folder, ply_data_folder, cc_path='./coord_conver
     folder_name = os.path.basename(os.path.dirname(raw_data_folder))
     east_pkl_path = os.path.join('./result/', folder_name + '_' + 'east' + '.pkl')
     west_pkl_path = os.path.join('./result/', folder_name + '_' + 'west' + '.pkl')
+    logger.info('writing to {} and {}'.format(east_pkl_path, west_pkl_path))
     with open(east_pkl_path, 'wb') as f:
         pickle.dump(east_crop_position_dict, f)
     with open(west_pkl_path, 'wb') as f:
