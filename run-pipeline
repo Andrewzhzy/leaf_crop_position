@@ -26,8 +26,6 @@ def parse_args():
 # TODO load a cc and dump to some where
 cc = CC(useSubplot=True)
 cc.bety_query('2017-05-12', useSubplot=True)
-with open('./coord_convert.pkl', 'wb') as f:
-    pickle.dump(cc, f)
 
 args = parse_args()
 logger = logging.getLogger('scan_crop_ppln_main')
@@ -61,7 +59,7 @@ for date_folder in os.listdir(args.raw_path):
         #              sensor_name='east', download_ply=False, per_plot=True, log_lv=logging.DEBUG):
         task_raw_path = os.path.join(raw_date_folder_path, sub_folder)
         task_ply_path = os.path.join(ply_date_folder_path, sub_folder)
-        task = (task_raw_path, task_ply_path)
+        task = (task_raw_path, task_ply_path, cc)
         task_list.append(task)
 total_tasks = len(task_list)
 logger.info('total task: {}'.format(total_tasks))

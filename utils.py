@@ -168,7 +168,7 @@ def depth_crop_position(xyz_map, cc, xyzd=False):
         plot_row, plot_col = cc.fieldPosition_to_fieldPartition(x_line_mean[i]*0.001, y_line_mean[i]*0.001)
         line_plot_num[i] = cc.fieldPartition_to_plotNum(plot_row, plot_col)
     rle_result = rle(line_plot_num)
-    #print(rle_result.astype(int))
+    # print(rle_result.astype(int))
     crop_positions = {}
     for rle_element in rle_result:
         plot_num, start_pos, height = rle_element.astype(int)

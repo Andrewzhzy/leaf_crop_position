@@ -7,9 +7,7 @@ from plyfile import PlyData
 import multiprocessing
 
 
-def find_crop_position(raw_data_folder, ply_data_folder, cc_path='./coord_convert.pkl', log_lv=logging.INFO):
-    with open(cc_path, 'rb') as f:
-        cc = pickle.load(f)
+def find_crop_position(raw_data_folder, ply_data_folder, cc, log_lv=logging.INFO):
     raw_data_folder = os.path.join(raw_data_folder, '')
     ply_data_folder = os.path.join(ply_data_folder, '')
     cpname = multiprocessing.current_process().name
